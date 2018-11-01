@@ -69,7 +69,6 @@ files_X_train, files_X_dev, y_train, y_dev = train_test_split(temp_X, temp_y,
 
 ### 4. Preprocess feature data (images) - X
 # function to load, resize, and group images into their sets
-# >>> definitely a faster way to do this, will revisit <<<
 resize_height=64 
 resize_width=64
 def img_grouping(file_group_raw):
@@ -91,7 +90,7 @@ X_train = img_grouping(files_X_train)
 X_dev = img_grouping(files_X_dev)
 X_test = img_grouping(files_X_test)
 
-### 5. First CNN attempt
+### 5. Simple CNN
 model = keras.Sequential()
 model.add(keras.layers.Conv2D(filters=5, kernel_size=(5,5), padding='valid', 
                               activation='relu',
